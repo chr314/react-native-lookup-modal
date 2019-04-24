@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity, TextInput, FlatList} from 'react-native';
 import Modal from "react-native-modal";
 import PropTypes from 'prop-types';
-import Utils from "Utils";
+import Utils from "./Utils";
 
 
 export default class LookupModal extends React.Component {
