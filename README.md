@@ -12,4 +12,14 @@ OR
 ```javascript
 import {LookupModal} from 'react-native-lookup-modal';
 
+<LookupModal
+    data={this.state.items}
+    onSelect={item => {
+        alert("Selected item:" + item.name);
+    }}
+    searchFunc={(text,data) => {
+        return customSearchFunction(text);
+    }}
+    displayKey={"name"}
+/>
 ```
