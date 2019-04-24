@@ -12,7 +12,8 @@ export default class LookupModal extends React.Component {
         data: PropTypes.array,
         apiRoute: PropTypes.string,
         displayKey: PropTypes.string,
-        searchFunc: PropTypes.func
+        searchFunc: PropTypes.func,
+        placeholder: PropTypes.string,
     };
 
     static defaultProps = {
@@ -21,7 +22,8 @@ export default class LookupModal extends React.Component {
         data: [],
         apiRoute: "",
         displayKey: "title",
-        searchFunc: null
+        searchFunc: null,
+        placeholder: "Search..."
     };
 
     state = {
@@ -81,7 +83,7 @@ export default class LookupModal extends React.Component {
                         <View>
                             <TextInput
                                 style={styles.textInput}
-                                placeholder={"Search..."}
+                                placeholder={this.props.placeholder}
                                 onChangeText={(text) => {
                                     this.setState({search: text});
                                     this.search(text);
