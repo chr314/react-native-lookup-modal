@@ -7,11 +7,19 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "react-native"
+    "react-native",
+    "react-native-component",
+    "search",
+    "lookup",
+    "modal"
   ],
   "author": {
     "name": "Christoforos Aslanov",
     "email": "christoforos@christoforos.io"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chr314/react-native-lookup-modal.git"
   },
   "license": "MIT",
   "peerDependencies": {
