@@ -14,6 +14,9 @@ export default class LookupModal extends React.Component {
         displayKey: PropTypes.string,
         searchFunc: PropTypes.func,
         placeholder: PropTypes.string,
+        selectText: PropTypes.string,
+        selectButtonStyle: PropTypes.object,
+        selectButtonTextStyle: PropTypes.object
     };
 
     static defaultProps = {
@@ -23,7 +26,10 @@ export default class LookupModal extends React.Component {
         apiRoute: "",
         displayKey: "title",
         searchFunc: null,
-        placeholder: "Search..."
+        placeholder: "Search...",
+        selectText: "Select...",
+        selectButtonStyle: {},
+        selectButtonTextStyle: {}
     };
 
     state = {
@@ -69,8 +75,13 @@ export default class LookupModal extends React.Component {
     render() {
         return (
             <View>
-                <TouchableOpacity style={styles.selectButton} onPress={() => this.toggleModal(true)}>
-                    <Text style={styles.selectText}>Select...</Text>
+                <TouchableOpacity
+                    style={{...styles.selectButton, ...this.props.selectButtonStyle}}
+                    onPress={() => this.toggleModal(true)}
+                >
+                    <Text style={{...styles.selectText, ...this.props.selectButtonTextStyle}}>
+                        {this.props.selectText}
+                    </Text>
                 </TouchableOpacity>
                 <Modal
                     isVisible={this.state.isVisible}
