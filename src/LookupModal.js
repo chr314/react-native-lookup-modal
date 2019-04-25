@@ -43,13 +43,6 @@ export default class LookupModal extends React.Component {
         searchResults: []
     };
 
-    constructor(props) {
-        super(props);
-        if (!Utils.isFunction(this.props.searchFunc)) {
-            this.props.searchFunc = this.defaultSearchFunc;
-        }
-    }
-
     toggleModal(visible) {
         if (visible == null) {
             this.setState({isVisible: !this.state.isVisible})
@@ -66,7 +59,10 @@ export default class LookupModal extends React.Component {
 
     search(text) {
         if (Utils.isFunction(this.props.searchFunc)) {
-            let results = this.props.searchFunc(text, this.state.data);
+            let results = this.props.searchFunc(text, this.props.data);
+            this.setState({searchResults: results});
+        } else {
+            let results = this.defaultSearchFunc(text, this.props.data);
             this.setState({searchResults: results});
         }
     }
