@@ -16,7 +16,10 @@ export default class LookupModal extends React.Component {
         placeholder: PropTypes.string,
         selectText: PropTypes.string,
         selectButtonStyle: PropTypes.object,
-        selectButtonTextStyle: PropTypes.object
+        selectButtonTextStyle: PropTypes.object,
+        contentStyle: PropTypes.object,
+        itemStyle: PropTypes.object,
+        itemTextStyle: PropTypes.object,
     };
 
     static defaultProps = {
@@ -29,7 +32,10 @@ export default class LookupModal extends React.Component {
         placeholder: "Search...",
         selectText: "Select...",
         selectButtonStyle: {},
-        selectButtonTextStyle: {}
+        selectButtonTextStyle: {},
+        contentStyle: {},
+        itemStyle: {},
+        itemTextStyle: {},
     };
 
     state = {
@@ -90,7 +96,7 @@ export default class LookupModal extends React.Component {
                     onBackButtonPress={() => this.toggleModal(false)}
                     onModalShow={() => this.resetResults()}
                 >
-                    <View style={styles.modalContent}>
+                    <View style={{...styles.modalContent, ...this.props.contentStyle}}>
                         <View style={styles.header}>
                             <TextInput
                                 style={styles.textInput}
@@ -112,12 +118,13 @@ export default class LookupModal extends React.Component {
                         <FlatList
                             style={{width: '100%'}}
                             data={this.state.searchResults}
-                            maxToRenderPerBatch={5}
                             renderItem={({item}) => (
                                 <TouchableOpacity
-                                    style={styles.item}
+                                    style={{...styles.item, ...this.props.itemStyle}}
                                     onPress={() => this.onSelect(item)}>
-                                    <Text style={styles.itemText}>{item[this.props.displayKey]}</Text>
+                                    <Text style={{...styles.itemText, ...this.props.itemTextStyle}}>
+                                        {item[this.props.displayKey] ? item[this.props.displayKey] : ""}
+                                    </Text>
                                 </TouchableOpacity>
                             )}
                             keyExtractor={(item, index) => index.toString()}
@@ -151,7 +158,9 @@ const styles = StyleSheet.create({
         width: "100%",
         padding: 0,
         paddingBottom: 5,
-        flex: 1
+        flex: 1,
+        borderBottomWidth: 1,
+        borderColor: "#c7c7c7"
     },
     selectText: {
         fontWeight: 'bold',
