@@ -42,9 +42,6 @@ export default class LookupModal extends React.Component {
         if (!Utils.isFunction(this.props.searchFunc)) {
             this.props.searchFunc = this.defaultSearchFunc;
         }
-        if (Utils.isEmpty(this.state.searchResults)) {
-            this.state.searchResults = this.props.data;
-        }
     }
 
     toggleModal(visible) {
@@ -53,10 +50,13 @@ export default class LookupModal extends React.Component {
         } else {
             this.setState({isVisible: !!visible})
         }
-        if (visible === false && this.state.searchResults.length !== this.props.data.length) {
+    };
+
+    resetResults() {
+        if (this.state.searchResults.length !== this.props.data.length) {
             this.setState({searchResults: this.props.data});
         }
-    };
+    }
 
     search(text) {
         if (Utils.isFunction(this.props.searchFunc)) {
@@ -88,6 +88,7 @@ export default class LookupModal extends React.Component {
                     onBackdropPress={() => this.setState({isVisible: false})}
                     onModalHide={() => this.setState({search: ""})}
                     onBackButtonPress={() => this.toggleModal(false)}
+                    onModalShow={() => this.resetResults()}
                 >
                     <View style={styles.modalContent}>
                         <View style={styles.header}>
