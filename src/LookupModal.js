@@ -75,15 +75,11 @@ export default class LookupModal extends React.Component {
                 <Modal
                     isVisible={this.state.isVisible}
                     onBackdropPress={() => this.setState({isVisible: false})}
-                    onModalHide={() => {
-                        this.setState({search: ""});
-                    }}
-                    onBackButtonPress={() => {
-                        this.toggleModal(false);
-                    }}
+                    onModalHide={() => this.setState({search: ""})}
+                    onBackButtonPress={() => this.toggleModal(false)}
                 >
                     <View style={styles.modalContent}>
-                        <View>
+                        <View style={styles.header}>
                             <TextInput
                                 style={styles.textInput}
                                 placeholder={this.props.placeholder}
@@ -92,23 +88,28 @@ export default class LookupModal extends React.Component {
                                     this.search(text);
                                 }}
                                 value={this.state.search}
-                                multiline={true}
                             />
-
-                            <FlatList
-                                style={{width: '100%'}}
-                                data={this.state.searchResults}
-                                maxToRenderPerBatch={5}
-                                renderItem={({item}) => (
-                                    <TouchableOpacity
-                                        style={styles.item}
-                                        onPress={() => this.onSelect(item)}>
-                                        <Text>{item[this.props.displayKey]}</Text>
-                                    </TouchableOpacity>
-                                )}
-                                keyExtractor={(item, index) => index.toString()}
-                            />
+                            <TouchableOpacity
+                                style={styles.closeButton}
+                                onPress={() => this.toggleModal(false)}
+                            >
+                                <Text style={styles.closeButtonText}>×</Text>
+                            </TouchableOpacity>
                         </View>
+
+                        <FlatList
+                            style={{width: '100%'}}
+                            data={this.state.searchResults}
+                            maxToRenderPerBatch={5}
+                            renderItem={({item}) => (
+                                <TouchableOpacity
+                                    style={styles.item}
+                                    onPress={() => this.onSelect(item)}>
+                                    <Text style={styles.itemText}>{item[this.props.displayKey]}</Text>
+                                </TouchableOpacity>
+                            )}
+                            keyExtractor={(item, index) => index.toString()}
+                        />
                     </View>
                 </Modal>
             </View>
@@ -121,10 +122,24 @@ const styles = StyleSheet.create({
         backgroundColor: "white",
         padding: 10
     },
+    closeButton: {
+        width: 40,
+        padding: 5,
+        justifyContent: 'center',
+    },
+    closeButtonText: {
+        fontSize: 30,
+        fontWeight: 'bold',
+        textAlign: 'center',
+    },
+    header: {
+        flexDirection: 'row'
+    },
     textInput: {
         width: "100%",
         padding: 0,
-        paddingBottom: 5
+        paddingBottom: 5,
+        flex: 1
     },
     selectText: {
         fontWeight: 'bold',
@@ -138,4 +153,7 @@ const styles = StyleSheet.create({
     item: {
         padding: 10
     },
+    itemText: {
+        fontSize: 18
+    }
 });
