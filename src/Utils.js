@@ -12,7 +12,7 @@ export default class Utils {
     }
 
     static isArray(value) {
-        return value && typeof value === 'object' && value.constructor === Array;
+        return Array.isArray(value);
     }
 
     static isNumber(value) {

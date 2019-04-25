@@ -47,6 +47,9 @@ export default class LookupModal extends React.Component {
         } else {
             this.setState({isVisible: !!visible})
         }
+        if (visible === false && this.state.searchResults.length !== this.props.data.length) {
+            this.setState({searchResults: this.props.data});
+        }
     };
 
     search(text) {
