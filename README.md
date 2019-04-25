@@ -53,7 +53,7 @@ let users = [
 
 Prop | Description | Type | Required/Default
 ------ | ------ | ------ | ------
-`data` | Array of Objects | `object` | Default: `[]`
+`data` | Array of Objects | `array` | Default: `[]`
 `onSelect` | Fired when an result is selected | `function` | Optional
 `displayKey` | Which property is shown in results | `string` | Default: `title`
 `placeholder` | Placeholder of TextInput | `string` | Default: `Search...`
