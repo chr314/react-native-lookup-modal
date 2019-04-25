@@ -21,6 +21,10 @@
     "type": "git",
     "url": "https://github.com/chr314/react-native-lookup-modal.git"
   },
+  "bugs": {
+    "url": "https://github.com/chr314/react-native-lookup-modal/issues"
+  },
+  "homepage": "https://github.com/chr314/react-native-lookup-modal",
   "license": "MIT",
   "peerDependencies": {
     "react": "*",
