@@ -56,5 +56,11 @@ Prop | Description | Type | Required/Default
 `data` | Array of Objects | `array` | Default: `[]`
 `onSelect` | Fired when an result is selected | `function` | Optional
 `displayKey` | Which property is shown in results | `string` | Default: `title`
+`selectText` | Text of select button | `string` | Default: `Select...`
 `placeholder` | Placeholder of TextInput | `string` | Default: `Search...`
 `searchFunc` | Custom search function | `function` | Default: `defaultSearchFunc()`
+`selectButtonStyle` | Custom select button style | `object` | Optional
+`selectButtonTextStyle` | Custom select button text style | `object` | Optional
+`contentStyle` | Custom modal content style | `object` | Optional
+`itemStyle` | Custom item style | `object` | Optional
+`itemTextStyle` | Custom item text style | `object` | Optional
