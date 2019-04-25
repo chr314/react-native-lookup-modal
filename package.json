@@ -28,7 +28,9 @@
   "license": "MIT",
   "peerDependencies": {
     "react": "*",
-    "react-native": "*",
-    "react-native-modal": "*"
+    "react-native": "*"
+  },
+  "dependencies": {
+    "react-native-modal": "^9.0.0"
   }
 }
