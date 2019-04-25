@@ -1,12 +1,12 @@
 
 # React Native Lookup Modal
 
-## Getting started
-`$ yarn add react-native-lookup-modal`
+## Install
+`yarn add react-native-lookup-modal`
 
 OR
 
-`$ npm install react-native-lookup-modal --save`
+`npm install react-native-lookup-modal --save`
 
 ## Usage
 ```javascript
@@ -47,3 +47,14 @@ let users = [
     displayKey={"name"}
 />
 ```
+
+
+## Props
+
+Prop | Description | Type | Required/Default
+------ | ------ | ------ | ------
+`data` | Array of Objects | `object` | Default: `[]`
+`onSelect` | Fired when an result is selected | `function` | Optional
+`displayKey` | Which property is shown in results | `string` | Default: `title`
+`placeholder` | Placeholder of TextInput | `string` | Default: `Search...`
+`searchFunc` | Custom search function | `function` | Default: `defaultSearchFunc()`
