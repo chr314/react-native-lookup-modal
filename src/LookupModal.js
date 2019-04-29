@@ -112,6 +112,7 @@ export default class LookupModal extends React.Component {
                         </View>
 
                         <FlatList
+                            keyboardShouldPersistTaps={'always'}
                             style={{width: '100%'}}
                             data={this.state.searchResults}
                             renderItem={({item}) => (
