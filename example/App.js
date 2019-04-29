@@ -34,16 +34,18 @@ export default class App extends React.Component {
         ];
         return (
             <View style={styles.container}>
-                <Text style={styles.welcome}>Welcome to React Native!</Text>
-                <Text style={styles.welcome}>User: {this.state.userName}</Text>
+                <Text style={styles.title}>React Native Lookup Modal Example</Text>
+                <View style={styles.item}>
+                    <Text style={styles.welcome}>User: {this.state.userName}</Text>
 
-                <LookupModal
-                    data={users}
-                    onSelect={item => {
-                        this.setState({userName: item.name});
-                    }}
-                    displayKey={"name"}
-                />
+                    <LookupModal
+                        data={users}
+                        onSelect={item => {
+                            this.setState({userName: item.name});
+                        }}
+                        displayKey={"name"}
+                    />
+                </View>
             </View>
         );
     }
@@ -56,7 +58,16 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#F5FCFF',
     },
-    welcome: {
+    item:{
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        borderWidth: 1,
+        borderColor: "#bcbcbc",
+        width: '80%',
+        padding: 10
+    },
+    title: {
         fontSize: 20,
         textAlign: 'center',
         margin: 10,
