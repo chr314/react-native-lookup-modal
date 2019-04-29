@@ -1,6 +1,8 @@
 
 # React Native Lookup Modal
 
+![example gif](https://media.giphy.com/media/320CTS5gPGEEgPnfpB/giphy.gif)
+
 ## Install
 `yarn add react-native-lookup-modal`
 
