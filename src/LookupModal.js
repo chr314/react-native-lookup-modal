@@ -72,7 +72,7 @@ export default class LookupModal extends React.Component {
         this.props.onSelect(item);
     }
 
-    defaultSearchFunc = (text, data) => data.filter(item => item[this.props.displayKey].includes(text));
+    defaultSearchFunc = (text, data) => data.filter(item => item[this.props.displayKey].toLowerCase().indexOf(text.toLowerCase()) > -1);
 
     render() {
         return (
