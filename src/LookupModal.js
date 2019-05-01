@@ -9,6 +9,7 @@ export default class LookupModal extends React.Component {
 
     static propTypes = {
         onSelect: PropTypes.func,
+        onCancel: PropTypes.func,
         data: PropTypes.array,
         apiRoute: PropTypes.string,
         displayKey: PropTypes.string,
@@ -24,6 +25,8 @@ export default class LookupModal extends React.Component {
 
     static defaultProps = {
         onSelect: () => {
+        },
+        onCancel: () => {
         },
         data: [],
         apiRoute: "",
@@ -72,6 +75,11 @@ export default class LookupModal extends React.Component {
         this.props.onSelect(item);
     }
 
+    onCancel() {
+        this.toggleModal(false);
+        this.props.onCancel();
+    }
+
     defaultSearchFunc = (text, data) => data.filter(item => item[this.props.displayKey].toLowerCase().indexOf(text.toLowerCase()) > -1);
 
     render() {
@@ -87,9 +95,9 @@ export default class LookupModal extends React.Component {
                 </TouchableOpacity>
                 <Modal
                     isVisible={this.state.isVisible}
-                    onBackdropPress={() => this.setState({isVisible: false})}
+                    onBackdropPress={() => this.onCancel()}
                     onModalHide={() => this.setState({search: ""})}
-                    onBackButtonPress={() => this.toggleModal(false)}
+                    onBackButtonPress={() => this.onCancel()}
                     onModalShow={() => this.resetResults()}
                 >
                     <View style={{...styles.modalContent, ...this.props.contentStyle}}>
@@ -105,7 +113,7 @@ export default class LookupModal extends React.Component {
                             />
                             <TouchableOpacity
                                 style={styles.closeButton}
-                                onPress={() => this.toggleModal(false)}
+                                onPress={() => this.onCancel()}
                             >
                                 <Text style={styles.closeButtonText}>×</Text>
                             </TouchableOpacity>
