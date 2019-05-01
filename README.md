@@ -54,6 +54,7 @@ Prop | Description | Type | Required/Default
 ------ | ------ | ------ | ------
 `data` | Array of Objects | `array` | Default: `[]`
 `onSelect` | Fired when an result is selected | `function` | `(item) => {}`
+`onCancel` | Fired when modal is closed without selecting any result | `function` | `() => {}`
 `displayKey` | Which property is shown in results | `string` | Default: `title`
 `selectText` | Text of select button | `string` | Default: `Select...`
 `placeholder` | Placeholder of TextInput | `string` | Default: `Search...`
