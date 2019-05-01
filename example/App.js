@@ -44,6 +44,12 @@ export default class App extends React.Component {
                             this.setState({userName: item.name});
                         }}
                         displayKey={"name"}
+                        onCancel={() => {
+                            alert("onCancel");
+                        }}
+                        itemStyle={{backgroundColor: "#393939"}}
+                        itemTextStyle={{color: "#fff"}}
+                        contentStyle={{backgroundColor: "#c5c5c5"}}
                     />
                 </View>
             </View>
@@ -58,7 +64,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#F5FCFF',
     },
-    item:{
+    item: {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
