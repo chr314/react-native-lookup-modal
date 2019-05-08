@@ -9,7 +9,7 @@
   "dependencies": {
     "react": "16.8.3",
     "react-native": "0.59.5",
-    "react-native-lookup-modal": "^1.2.0"
+    "react-native-lookup-modal": "git+https://github.com/chr314/react-native-lookup-modal.git"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
