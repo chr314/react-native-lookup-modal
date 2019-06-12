@@ -100,7 +100,11 @@ export default class LookupModal extends React.Component {
                 </TouchableOpacity>
             );
         } else if (!this.props.hideSelectButton && this.props.customSelectButton) {
-            selectButton = this.props.customSelectButton;
+            selectButton = (
+                <TouchableOpacity onPress={() => this.toggleModal(true)}>
+                    {this.props.customSelectButton}
+                </TouchableOpacity>
+            );
         }
 
         return (
