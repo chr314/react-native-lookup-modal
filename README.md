@@ -1,6 +1,8 @@
 
 # React Native Lookup Modal
 
+React Native Lookup Modal
+
 ![example gif](https://media.giphy.com/media/320CTS5gPGEEgPnfpB/giphy.gif)
 
 ## Install
@@ -61,6 +63,8 @@ Prop | Description | Type | Required/Default
 `searchFunc` | Custom search function | `function` | Default: `defaultSearchFunc(text, data)`
 `selectButtonStyle` | Custom select button style | `object` | Optional
 `selectButtonTextStyle` | Custom select button text style | `object` | Optional
+`hideSelectButton` | Hide select button | `bool` | Default: `false`
+`customSelectButton` | Custom select button | `element` | Optional
 `contentStyle` | Custom modal content style | `object` | Optional
 `itemStyle` | Custom item style | `object` | Optional
 `itemTextStyle` | Custom item text style | `object` | Optional
