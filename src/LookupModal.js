@@ -18,6 +18,8 @@ export default class LookupModal extends React.Component {
         selectText: PropTypes.string,
         selectButtonStyle: PropTypes.object,
         selectButtonTextStyle: PropTypes.object,
+        hideSelectButton: PropTypes.bool,
+        customSelectButton: PropTypes.element,
         contentStyle: PropTypes.object,
         itemStyle: PropTypes.object,
         itemTextStyle: PropTypes.object,
@@ -36,6 +38,8 @@ export default class LookupModal extends React.Component {
         selectText: "Select...",
         selectButtonStyle: {},
         selectButtonTextStyle: {},
+        hideSelectButton: false,
+        customSelectButton: null,
         contentStyle: {},
         itemStyle: {},
         itemTextStyle: {},
@@ -83,8 +87,9 @@ export default class LookupModal extends React.Component {
     defaultSearchFunc = (text, data) => data.filter(item => item[this.props.displayKey].toLowerCase().indexOf(text.toLowerCase()) > -1);
 
     render() {
-        return (
-            <View>
+        let selectButton;
+        if (!this.props.hideSelectButton && !this.props.customSelectButton) {
+            selectButton = (
                 <TouchableOpacity
                     style={{...styles.selectButton, ...this.props.selectButtonStyle}}
                     onPress={() => this.toggleModal(true)}
@@ -93,6 +98,14 @@ export default class LookupModal extends React.Component {
                         {this.props.selectText}
                     </Text>
                 </TouchableOpacity>
+            );
+        } else if (!this.props.hideSelectButton && this.props.customSelectButton) {
+            selectButton = this.props.customSelectButton;
+        }
+
+        return (
+            <View>
+                {selectButton}
                 <Modal
                     isVisible={this.state.isVisible}
                     onBackdropPress={() => this.onCancel()}
