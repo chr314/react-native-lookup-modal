@@ -68,3 +68,11 @@ Prop | Description | Type | Required/Default
 `contentStyle` | Custom modal content style | `object` | Optional
 `itemStyle` | Custom item style | `object` | Optional
 `itemTextStyle` | Custom item text style | `object` | Optional
+
+## Methods
+
+Method | Description 
+------ | ------ 
+`toggleModal(visible)` | the parameter is optional, show = `true`, hide = `false`
+`resetResults()` | clear the search results
+`search(text)` | search
