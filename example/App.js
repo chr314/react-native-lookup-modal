@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, Button} from 'react-native';
 import {LookupModal} from "react-native-lookup-modal";
 
 
@@ -39,6 +39,7 @@ export default class App extends React.Component {
                     <Text style={styles.welcome}>User: {this.state.userName}</Text>
 
                     <LookupModal
+                        ref={component => this._lookup = component}
                         data={users}
                         onSelect={item => {
                             this.setState({userName: item.name});
@@ -52,6 +53,11 @@ export default class App extends React.Component {
                         contentStyle={{backgroundColor: "#c5c5c5"}}
                     />
                 </View>
+
+                <Button
+                    onPress={() => this._lookup.toggleModal(true)}
+                    title="Show modal using ref"
+                />
             </View>
         );
     }
