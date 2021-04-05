@@ -1,1 +1,1 @@
-export {default as LookupModal} from './src/LookupModal';
+export default from './src/LookupModal';

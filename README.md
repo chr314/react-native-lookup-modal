@@ -14,7 +14,7 @@ OR
 
 ## Usage
 ```javascript
-import {LookupModal} from 'react-native-lookup-modal';
+import LookupModal from 'react-native-lookup-modal';
 
 let users = [
     {
@@ -40,11 +40,12 @@ let users = [
     }
 ];
 
+const [user, setUser] = useState();
+
 <LookupModal
     data={users}
-    onSelect={item => {
-        alert("Selected user: " + item.name);
-    }}
+    value={user}
+    onSelect={item => setUser(item)}
     displayKey={"name"}
 />
 ```
@@ -55,6 +56,7 @@ let users = [
 Prop | Description | Type | Required/Default
 ------ | ------ | ------ | ------
 `data` | Array of Objects | `array` | Default: `[]`
+`value` | Selected item | `object` | Optional
 `onSelect` | Fired when an result is selected | `function` | `(item) => {}`
 `onCancel` | Fired when modal is closed without selecting any result | `function` | `() => {}`
 `displayKey` | Which property is shown in results | `string` | Default: `title`
@@ -64,7 +66,7 @@ Prop | Description | Type | Required/Default
 `selectButtonStyle` | Custom select button style | `object` | Optional
 `selectButtonTextStyle` | Custom select button text style | `object` | Optional
 `hideSelectButton` | Hide select button | `bool` | Default: `false`
-`customSelectButton` | Custom select button | `element` | Optional
+`children` | Custom select button | `element` | Optional
 `contentStyle` | Custom modal content style | `object` | Optional
 `itemStyle` | Custom item style | `object` | Optional
 `itemTextStyle` | Custom item text style | `object` | Optional
